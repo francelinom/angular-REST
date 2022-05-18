@@ -8,15 +8,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-REST';
-
-  usuario = {
-    login: '',
-    senha: '',
-  };
-
-  constructor(private loginService: LoginService) {}
-
-  login() {
-    this.loginService.login(this.usuario);
-  }
 }
