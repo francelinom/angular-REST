@@ -20,6 +20,7 @@ export class LoginService {
         },
         (error) => {
           console.log('Erro ao fazer login', error);
+          alert('Acesso negado!');
         }
       );
   }
