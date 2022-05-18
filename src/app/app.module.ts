@@ -1,3 +1,4 @@
+import { HttpInterceptorModule } from './service/header-interceptor.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,7 +11,13 @@ import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, LoginComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    HttpInterceptorModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
