@@ -1,4 +1,5 @@
-import { UsuarioComponent } from './components/usuario/usuario.component';
+import { UsuarioAddComponent } from './components/usuario/usuario-add/usuario-add.component';
+import { UsuarioComponent } from './components/usuario/usuario/usuario.component';
 import { LoginComponent } from './login/login.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -21,6 +22,14 @@ const routes: Routes = [
   {
     path: 'usuarioList',
     component: UsuarioComponent,
+  },
+  {
+    path: 'usuarioAdd',
+    component: UsuarioAddComponent,
+  },
+  {
+    path: 'usuarioAdd/:id',
+    component: UsuarioAddComponent,
   },
 ];
 

@@ -1,4 +1,5 @@
-import { UsuarioComponent } from './components/usuario/usuario.component';
+import { UsuarioComponent } from './components/usuario/usuario/usuario.component';
+
 import { HttpInterceptorModule } from './service/header-interceptor.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -9,9 +10,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { UsuarioAddComponent } from './components/usuario/usuario-add/usuario-add.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, UsuarioComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    UsuarioComponent,
+    UsuarioAddComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
