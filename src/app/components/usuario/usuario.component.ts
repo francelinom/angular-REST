@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioComponent implements OnInit {
   usuarios?: any[];
+  usuarioSelecionado?: any;
 
   constructor(private usuarioService: UsuarioService) {}
 
@@ -19,11 +20,17 @@ export class UsuarioComponent implements OnInit {
     });
   }
 
-  deleteUsuario(id: number) {
-    this.usuarioService.deleteUsuario(id).subscribe((data) => {
-      this.usuarioService.getList().subscribe((data) => {
-        this.usuarios = data;
+  preparaDelecao(usuario: any) {
+    this.usuarioSelecionado = usuario;
+  }
+
+  deleteUsuario() {
+    this.usuarioService
+      .deleteUsuario(this.usuarioSelecionado.id)
+      .subscribe((data) => {
+        this.usuarioService.getList().subscribe((data) => {
+          this.usuarios = data;
+        });
       });
-    });
   }
 }

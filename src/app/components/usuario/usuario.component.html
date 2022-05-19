@@ -4,16 +4,63 @@
       <th scope="col">ID</th>
       <th scope="col">Nome</th>
       <th scope="col">CPF</th>
+      <th scope="col">Ação</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let usuario of usuarios">
-      <td>{{usuario.id}}</td>
-      <td>{{usuario.nome}}</td>
-      <td>{{usuario.cpf}}</td>
+      <td>{{ usuario.id }}</td>
+      <td>{{ usuario.nome }}</td>
+      <td>{{ usuario.cpf }}</td>
       <td>
-        <button class="btn btn-danger" (click)="deleteUsuario(usuario.id)">Delete</button>
+        <button
+          class="btn btn-danger"
+          data-toggle="modal"
+          data-target="#modalDelete"
+          (click)="preparaDelecao(usuario)"
+        >
+          Delete
+        </button>
       </td>
     </tr>
   </tbody>
 </table>
+
+<!-- Modal Delete-->
+<div
+  class="modal fade"
+  id="modalDelete"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modalDeleteLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalDeleteLabel">
+          Confirmação de Exclusão
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="usuarioSelecionado">
+        Confirma a deleção do(a) Usuario {{ usuarioSelecionado.nome }} ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteUsuario()">
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
