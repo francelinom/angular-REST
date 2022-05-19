@@ -9,8 +9,8 @@
         class="form-control"
         id="id"
         name="id"
-        readonly
-        autocomplete="false"
+        [(ngModel)]="usuario.id"
+        disabled=""
       />
     </div>
   </div>
@@ -23,7 +23,7 @@
         class="form-control"
         id="nome"
         name="nome"
-        autocomplete="false"
+        [(ngModel)]="usuario.nome"
         required
       />
     </div>
@@ -37,7 +37,7 @@
         class="form-control"
         id="login"
         name="login"
-        autocomplete="false"
+        [(ngModel)]="usuario.login"
         required
       />
     </div>
@@ -49,7 +49,7 @@
         class="form-control"
         id="senha"
         name="senha"
-        autocomplete="false"
+        [(ngModel)]="usuario.senha"
         required
       />
     </div>
@@ -63,7 +63,7 @@
         class="form-control"
         id="cpf"
         name="cpf"
-        autocomplete="false"
+        [(ngModel)]="usuario.cpf"
         required
       />
     </div>
@@ -75,11 +75,11 @@
         <i class="fa fa-angle-double-left"></i> Voltar
       </button>
 
-      <button class="btn btn-primary m-1">
+      <button class="btn btn-primary m-1" (click)="novo()">
         <i class="fa fa-plus"></i> Novo
       </button>
 
-      <button class="btn btn-success m-1">
+      <button class="btn btn-success m-1" (click)="salvarUsuario()">
         <i class="fa fa-save"></i> Salvar
       </button>
     </div>

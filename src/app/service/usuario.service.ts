@@ -13,6 +13,10 @@ export class UsuarioService {
     return this.http.get<any>(AppConstants.baseUrl);
   }
 
+  getUsuarioId(id: any): Observable<any> {
+    return this.http.get<any>(AppConstants.baseUrl + id);
+  }
+
   consultarUsuario(nome: String): Observable<any> {
     return this.http.get(AppConstants.baseUrl + 'usuarioPorNome/' + nome);
   }
@@ -21,5 +25,15 @@ export class UsuarioService {
     return this.http.delete(AppConstants.baseUrl + id, {
       responseType: 'text',
     });
+  }
+
+  salvarUsuario(usuario: any): Observable<any> {
+    console.log('usuario', usuario);
+    return this.http.post<any>(AppConstants.baseUrl, usuario);
+  }
+
+  upadateUsuario(usuario: any): Observable<any> {
+    console.log('usuarioUP  ', usuario);
+    return this.http.put<any>(AppConstants.baseUrl, usuario);
   }
 }
