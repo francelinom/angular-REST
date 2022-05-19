@@ -1,3 +1,9 @@
+<div class="text-right col-12 mt-3">
+  <button class="btn btn-success" [routerLink]="['/usuarioAdd']">
+    <i class="fa fa-plus"></i> Novo
+  </button>
+</div>
+
 <div class="col-4">
   <div class="input-group mb-3 mt-3">
     <input
@@ -11,7 +17,11 @@
       [(ngModel)]="nome"
     />
     <div class="input-group-append">
-      <button class="btn btn-outline-primary" type="button" (click)="consultarUsuario()">
+      <button
+        class="btn btn-outline-primary"
+        type="button"
+        (click)="consultarUsuario()"
+      >
         <i class="fa fa-search"></i>
       </button>
     </div>
@@ -35,12 +45,18 @@
         <td>{{ usuario.cpf }}</td>
         <td>
           <button
-            class="btn btn-danger"
+            class="btn btn-danger btn-sm m-1"
             data-toggle="modal"
             data-target="#modalDelete"
             (click)="preparaDelecao(usuario)"
           >
-            Delete
+            <i class="fa fa-trash"></i>
+          </button>
+          <button
+            [routerLink]="['/usuarioAdd', usuario.id]"
+            class="btn btn-primary btn-sm m-1"
+          >
+            <i class="fa fa-edit"></i>
           </button>
         </td>
       </tr>
