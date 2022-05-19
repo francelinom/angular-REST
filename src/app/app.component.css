@@ -9,6 +9,7 @@ footer {
   font-family: "open sans";
   padding-top: 10px;
   color: #fff;
+  padding-bottom: 0;
 }
 
 .footer-content {
@@ -67,4 +68,5 @@ footer {
   font-size: 14px;
   word-spacing: 2px;
   text-transform: capitalize;
+  padding: 0;
 }
