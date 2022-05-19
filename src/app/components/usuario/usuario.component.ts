@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class UsuarioComponent implements OnInit {
   usuarios?: any[];
   usuarioSelecionado?: any;
+  nome = '';
 
   constructor(private usuarioService: UsuarioService) {}
 
@@ -32,5 +33,11 @@ export class UsuarioComponent implements OnInit {
           this.usuarios = data;
         });
       });
+  }
+
+  consultarUsuario() {
+    this.usuarioService.consultarUsuario(this.nome).subscribe((data) => {
+      this.usuarios = data;
+    });
   }
 }
