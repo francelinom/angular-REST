@@ -12,4 +12,10 @@ export class UsuarioService {
   getList(): Observable<any> {
     return this.http.get<any>(AppConstants.baseUrl);
   }
+
+  deleteUsuario(id: number): Observable<any> {
+    return this.http.delete(AppConstants.baseUrl + id, {
+      responseType: 'text',
+    });
+  }
 }
