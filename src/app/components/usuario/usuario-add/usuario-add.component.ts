@@ -19,14 +19,14 @@ export class UsuarioAddComponent implements OnInit {
   ngOnInit(): void {
     let id = this.routeActive.snapshot.paramMap.get('id');
     if (id != null) {
-      this.usuarioService.getUsuarioId(id).subscribe((data) => {
+      this.usuarioService.getUsuarioId(+id).subscribe((data) => {
+        console.log('data', data);
         this.usuario = data;
       });
     }
   }
 
   salvarUsuario() {
-    console.log('->>>>>>>>>', this.usuario);
     if (this.usuario.id != null && this.usuario.id.toString().trim() != null) {
       console.log('aqui1');
       this.usuarioService.upadateUsuario(this.usuario).subscribe((data) => {
@@ -34,7 +34,6 @@ export class UsuarioAddComponent implements OnInit {
       });
     } else {
       this.usuarioService.salvarUsuario(this.usuario).subscribe((data) => {
-        console.log('aqui2');
         this.novo();
       });
     }

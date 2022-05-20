@@ -4,4 +4,5 @@ export class User {
   nome?: string;
   senha?: string;
   cpf?: string;
+  cep?: string;
 }

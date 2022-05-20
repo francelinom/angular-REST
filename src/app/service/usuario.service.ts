@@ -13,7 +13,7 @@ export class UsuarioService {
     return this.http.get<any>(AppConstants.baseUrl);
   }
 
-  getUsuarioId(id: any): Observable<any> {
+  getUsuarioId(id: number): Observable<any> {
     return this.http.get<any>(AppConstants.baseUrl + id);
   }
 
@@ -28,12 +28,10 @@ export class UsuarioService {
   }
 
   salvarUsuario(usuario: any): Observable<any> {
-    console.log('usuario', usuario);
     return this.http.post<any>(AppConstants.baseUrl, usuario);
   }
 
   upadateUsuario(usuario: any): Observable<any> {
-    console.log('usuarioUP  ', usuario);
     return this.http.put<any>(AppConstants.baseUrl, usuario);
   }
 }
