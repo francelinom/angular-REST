@@ -34,4 +34,15 @@ export class UsuarioService {
   upadateUsuario(usuario: any): Observable<any> {
     return this.http.put<any>(AppConstants.baseUrl, usuario);
   }
+
+  usuarioAutenticado() {
+    if (
+      localStorage.getItem('token') !== null &&
+      localStorage.getItem('token')?.toString().trim() !== null
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
