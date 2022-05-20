@@ -1,6 +1,6 @@
 <h3 class="mt-2">Tela de Usuário</h3>
 
-<form>
+<form #formValidate="ngForm">
   <div class="form-row">
     <div class="form-group col-md-1">
       <label for="id">ID</label>
@@ -18,12 +18,14 @@
   <div class="form-row">
     <div class="form-group col-md-12">
       <label for="nome">Nome</label>
+      <span *ngIf="nomeValidate.invalid" class="text-danger"> *</span>
       <input
         type="text"
         class="form-control"
         id="nome"
         name="nome"
         [(ngModel)]="usuario.nome"
+        #nomeValidate="ngModel"
         required
       />
     </div>
@@ -32,24 +34,28 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="login">Login</label>
+      <span *ngIf="loginValidate.invalid" class="text-danger"> *</span>
       <input
         type="text"
         class="form-control"
         id="login"
         name="login"
         [(ngModel)]="usuario.login"
+        #loginValidate="ngModel"
         required
       />
     </div>
 
     <div class="form-group col-md-6">
       <label for="senha">Senha</label>
+      <span *ngIf="senhaValidate.invalid" class="text-danger"> *</span>
       <input
         type="password"
         class="form-control"
         id="senha"
         name="senha"
         [(ngModel)]="usuario.senha"
+        #senhaValidate="ngModel"
         required
       />
     </div>
@@ -58,24 +64,28 @@
   <div class="form-row">
     <div class="form-group col-md-3">
       <label for="cpf">CPF</label>
+      <span *ngIf="cpfValidate.invalid" class="text-danger"> *</span>
       <input
         type="number"
         class="form-control"
         id="cpf"
         name="cpf"
         [(ngModel)]="usuario.cpf"
+        #cpfValidate="ngModel"
         required
       />
     </div>
 
     <div class="form-group col-md-3">
       <label for="cpf">CEP</label>
+      <span *ngIf="cepValidate.invalid" class="text-danger"> *</span>
       <input
         type="number"
         class="form-control"
         id="cep"
         name="cep"
         [(ngModel)]="usuario.cep"
+        #cepValidate="ngModel"
         required
       />
     </div>
@@ -91,7 +101,7 @@
         <i class="fa fa-plus"></i> Novo
       </button>
 
-      <button class="btn btn-success m-1" (click)="salvarUsuario()">
+      <button class="btn btn-success m-1" [disabled]="formValidate.invalid" (click)="salvarUsuario()">
         <i class="fa fa-save"></i> Salvar
       </button>
     </div>
