@@ -31,7 +31,7 @@ export class HeaderInterceptorService implements HttpInterceptor {
         tap((event: HttpEvent<any>) => {
           if (
             event instanceof HttpResponse &&
-            (event.status === 200 || event.status === 2001)
+            (event.status === 200 || event.status === 201)
           ) {
             console.log('Operação com sucesso!');
           }
