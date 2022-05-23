@@ -112,9 +112,10 @@
   <table class="table table-hover">
     <tbody>
       <tr *ngFor="let fone of usuario.telefones">
+        <td>{{fone.id}}</td>
         <td>{{fone.telefone}}</td>
         <td>
-          <button class="btn btn-danger">
+          <button class="btn btn-danger" (click)="deletarTelefone(fone.id)">
             <i class="fa fa-trash"></i>
           </button>
         </td>

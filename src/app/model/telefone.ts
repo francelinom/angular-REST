@@ -1,4 +1,4 @@
 export class Telefone {
-  id?: number;
+  id?: any;
   telefone?: string;
 }

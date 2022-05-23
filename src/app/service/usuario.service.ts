@@ -45,4 +45,10 @@ export class UsuarioService {
       return false;
     }
   }
+
+  removerTelefone(id: number): Observable<any> {
+    return this.http.delete(AppConstants.baseUrl + 'removerTelefone/' + id, {
+      responseType: 'text',
+    });
+  }
 }
