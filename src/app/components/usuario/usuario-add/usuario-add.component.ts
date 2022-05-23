@@ -43,12 +43,14 @@ export class UsuarioAddComponent implements OnInit {
     this.usuario = new User();
   }
 
-  deletarTelefone(id: any) {
+  deletarTelefone(id: any, index: any) {
+    if (id === null) {
+      this.usuario.telefones?.splice(index, 1);
+    }
+
     if (id !== null && confirm('Deseja remover?')) {
       this.usuarioService.removerTelefone(id).subscribe((data) => {
-        console.log('Telefone removido', data);
-        const index = this.usuario.telefones?.indexOf(id);
-        this.usuario.telefones?.splice(index - 1);
+        this.usuario.telefones?.splice(index, 1);
       });
     }
   }
