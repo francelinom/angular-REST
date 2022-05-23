@@ -1,3 +1,4 @@
+import { Telefone } from './../../../model/telefone';
 import { UsuarioService } from './../../../service/usuario.service';
 import { User } from './../../../model/user';
 import { Component, OnInit } from '@angular/core';
@@ -10,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UsuarioAddComponent implements OnInit {
   usuario = new User();
+  telefone = new Telefone();
 
   constructor(
     private routeActive: ActivatedRoute,
@@ -18,9 +20,11 @@ export class UsuarioAddComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.routeActive.snapshot.paramMap.get('id');
-    if (id != null) {
+    if (id !== null) {
+      console.log('ID', id);
       this.usuarioService.getUsuarioId(+id).subscribe((data) => {
-        console.log('data', data.telefones);
+        console.log('data', data);
+        console.log('data', data.id);
         this.usuario = data;
       });
     }
@@ -28,7 +32,6 @@ export class UsuarioAddComponent implements OnInit {
 
   salvarUsuario() {
     if (this.usuario.id != null && this.usuario.id.toString().trim() != null) {
-      console.log('aqui1');
       this.usuarioService.upadateUsuario(this.usuario).subscribe((data) => {
         this.novo();
       });
@@ -41,6 +44,7 @@ export class UsuarioAddComponent implements OnInit {
 
   novo() {
     this.usuario = new User();
+    this.telefone = new Telefone();
   }
 
   deletarTelefone(id: any, index: any) {
@@ -53,5 +57,14 @@ export class UsuarioAddComponent implements OnInit {
         this.usuario.telefones?.splice(index, 1);
       });
     }
+  }
+
+  adicionarTelefone() {
+    if (this.usuario.telefones === undefined) {
+      this.usuario.telefones = new Array<Telefone>();
+    }
+
+    this.usuario.telefones.push(this.telefone);
+    this.telefone = new Telefone();
   }
 }
