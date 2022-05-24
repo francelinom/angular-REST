@@ -11,6 +11,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UsuarioAddComponent } from './components/usuario/usuario-add/usuario-add.component';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+
+export const optionsMask: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { UsuarioAddComponent } from './components/usuario/usuario-add/usuario-ad
     FormsModule,
     HttpClientModule,
     HttpInterceptorModule,
+    NgxMaskModule.forRoot(optionsMask),
   ],
   providers: [],
   bootstrap: [AppComponent],

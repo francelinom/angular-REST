@@ -7,5 +7,5 @@ export class User {
   cpf?: string;
   cep?: string;
 
-  telefones?: Array<Telefone>;
+  telefones?: Telefone[];
 }

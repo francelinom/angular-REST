@@ -66,11 +66,12 @@
       <label for="cpf">CPF</label>
       <span *ngIf="cpfValidate.invalid" class="text-danger"> *</span>
       <input
-        type="number"
+        type="text"
         class="form-control"
         id="cpf"
         name="cpf"
         [(ngModel)]="usuario.cpf"
+        mask="000.000.000-00"
         #cpfValidate="ngModel"
         required
       />
@@ -80,25 +81,31 @@
       <label for="cpf">CEP</label>
       <span *ngIf="cepValidate.invalid" class="text-danger"> *</span>
       <input
-        type="number"
+        type="text"
         class="form-control"
         id="cep"
         name="cep"
         [(ngModel)]="usuario.cep"
         #cepValidate="ngModel"
         required
+        mask="00000-000"
       />
     </div>
   </div>
 
   <div class="card text-center">
-    <div class="card-header">
-      Telefones Contato
-    </div>
+    <div class="card-header">Telefones Contato</div>
     <div class="card-body">
       <div class="form-row">
         <div class="form-group col-md-3">
-          <input type="text" class="form-control" [(ngModel)]="telefone.numero" id="numero" name="numero">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="telefone.numero"
+            id="numero"
+            name="numero"
+            mask="(00) 0 0000-0000"
+          />
         </div>
         <div class="form-group col-md-2">
           <button class="btn btn-success" (click)="adicionarTelefone()">
@@ -112,8 +119,8 @@
   <table class="table table-hover">
     <tbody>
       <tr *ngFor="let fone of usuario.telefones; let i = index">
-        <td>teste{{fone.id}}</td>
-        <td>teste{{fone.numero}}</td>
+        <td>{{ fone.id }}</td>
+        <td>{{ fone.numero | mask: '(00) 0 0000-0000'}}</td>
         <td>
           <button class="btn btn-danger" (click)="deletarTelefone(fone.id, i)">
             <i class="fa fa-trash"></i>
@@ -133,7 +140,11 @@
         <i class="fa fa-plus"></i> Novo
       </button>
 
-      <button class="btn btn-success m-1" [disabled]="formValidate.invalid" (click)="salvarUsuario()">
+      <button
+        class="btn btn-success m-1"
+        [disabled]="formValidate.invalid"
+        (click)="salvarUsuario()"
+      >
         <i class="fa fa-save"></i> Salvar
       </button>
     </div>

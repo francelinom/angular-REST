@@ -23,8 +23,7 @@ export class UsuarioAddComponent implements OnInit {
     if (id !== null) {
       console.log('ID', id);
       this.usuarioService.getUsuarioId(+id).subscribe((data) => {
-        console.log('data', data);
-        console.log('data', data.id);
+        console.log('data', data.telefones);
         this.usuario = data;
       });
     }
@@ -63,6 +62,8 @@ export class UsuarioAddComponent implements OnInit {
     if (this.usuario.telefones === undefined) {
       this.usuario.telefones = new Array<Telefone>();
     }
+
+    console.log('this.telefone', this.telefone);
 
     this.usuario.telefones.push(this.telefone);
     this.telefone = new Telefone();
