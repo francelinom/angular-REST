@@ -1,3 +1,4 @@
+import { User } from './../../../model/user';
 import { UsuarioService } from './../../../service/usuario.service';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usuario.component.css'],
 })
 export class UsuarioComponent implements OnInit {
-  usuarios?: any[];
+  usuarios: User[] = [];
   usuarioSelecionado?: any;
   nome = '';
+  pag: any;
 
   constructor(private usuarioService: UsuarioService) {}
 
