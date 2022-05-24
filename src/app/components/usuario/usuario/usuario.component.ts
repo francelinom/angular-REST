@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class UsuarioComponent implements OnInit {
   usuarios: User[] = [];
   usuarioSelecionado?: any;
+  indexSelecionado?: any;
   nome = '';
   pag: any;
   total: number = 0;
@@ -24,15 +25,16 @@ export class UsuarioComponent implements OnInit {
     });
   }
 
-  preparaDelecao(usuario: any) {
+  preparaDelecao(usuario: any, index: number) {
     this.usuarioSelecionado = usuario;
+    this.indexSelecionado = index;
   }
 
   deleteUsuario() {
     this.usuarioService
       .deleteUsuario(this.usuarioSelecionado.id)
       .subscribe((data) => {
-        this.ngOnInit();
+        this.usuarios.splice(this.indexSelecionado, 1);
       });
   }
 
