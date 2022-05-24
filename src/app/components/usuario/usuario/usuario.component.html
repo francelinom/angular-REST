@@ -42,7 +42,7 @@
       <tr
         *ngFor="
           let usuario of usuarios
-            | paginate: { itemsPerPage: 5, currentPage: pag }
+            | paginate: { itemsPerPage: 5, currentPage: pag, totalItems: total }
         "
       >
         <td>{{ usuario.id }}</td>
@@ -70,7 +70,7 @@
 
   <div class="text-center">
     <pagination-controls
-      (pageChange)="pag = $event"
+      (pageChange)="carregarPagina(pag = $event)"
       previousLabel="Voltar"
       nextLabel="Próximo"
     ></pagination-controls>

@@ -13,12 +13,14 @@ export class UsuarioComponent implements OnInit {
   usuarioSelecionado?: any;
   nome = '';
   pag: any;
+  total: number = 0;
 
   constructor(private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
     this.usuarioService.getList().subscribe((data) => {
-      this.usuarios = data;
+      this.usuarios = data.content;
+      this.total = data.totalElements;
     });
   }
 
@@ -38,5 +40,9 @@ export class UsuarioComponent implements OnInit {
     this.usuarioService.consultarUsuario(this.nome).subscribe((data) => {
       this.usuarios = data;
     });
+  }
+
+  carregarPagina(pagina: any) {
+    console.log(pagina);
   }
 }
