@@ -39,9 +39,17 @@ export class UsuarioComponent implements OnInit {
   }
 
   consultarUsuario() {
-    this.usuarioService.consultarUsuario(this.nome).subscribe((data) => {
-      this.usuarios = data;
-    });
+    if (this.nome === '') {
+      this.usuarioService.getList().subscribe((data) => {
+        this.usuarios = data.content;
+        this.total = data.totalElements;
+      });
+    } else {
+      this.usuarioService.consultarUsuario(this.nome).subscribe((data) => {
+        this.usuarios = data.content;
+        this.total = data.totalElements;
+      });
+    }
   }
 
   carregarPagina(pagina: any) {
