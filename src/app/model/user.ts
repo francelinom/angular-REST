@@ -6,6 +6,6 @@ export class User {
   senha?: string;
   cpf?: string;
   cep?: string;
-
+  dataNascimento?: string;
   telefones?: Telefone[];
 }

@@ -91,6 +91,20 @@
         mask="00000-000"
       />
     </div>
+
+    <div class="form-group col-md-3">
+      <label for="cpf">Data Nascimento</label>
+      <span *ngIf="dataValidate.invalid" class="text-danger"> *</span>
+      <input
+        type="date"
+        class="form-control"
+        id="data"
+        name="data"
+        [(ngModel)]="usuario.dataNascimento"
+        #dataValidate="ngModel"
+        required
+      />
+    </div>
   </div>
 
   <div class="card text-center">
