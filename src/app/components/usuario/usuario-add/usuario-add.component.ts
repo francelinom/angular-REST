@@ -30,6 +30,7 @@ export class UsuarioAddComponent implements OnInit {
   }
 
   salvarUsuario() {
+    console.log('usuario', this.usuario);
     if (this.usuario.id != null && this.usuario.id.toString().trim() != null) {
       this.usuarioService.upadateUsuario(this.usuario).subscribe((data) => {
         this.novo();
