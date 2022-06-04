@@ -46,7 +46,7 @@ Telas examplos:
 ## Tecnologias utilizadas 
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias
-- [Angular 13](https://angular.io/)
+- [Angular 12](https://angular.io/)
 - [Bootstrap 4](https://getbootstrap.com/docs/4.1/)
 - JavaScript
 - TypeScript
