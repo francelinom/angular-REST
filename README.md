@@ -1,4 +1,4 @@
-# AngularREST.
+# AngularREST
 
 ---
 
